@@ -64,6 +64,7 @@ th,td{
 <a id="downloadBtn" style="display:none;">
 <button>Download Current QR</button>
 </a>
+<button onclick="clearHistory()">Clear History</button>
 
 <h3>QR History</h3>
 
@@ -167,6 +168,15 @@ document.getElementById("historyTable").innerHTML=table;
 }
 
 loadHistory();
+function clearHistory(){
+
+localStorage.removeItem("qrHistory");
+
+document.getElementById("historyTable").innerHTML = "";
+
+alert("History Cleared Successfully");
+
+}
 
 console.log("Script Loaded");
 
