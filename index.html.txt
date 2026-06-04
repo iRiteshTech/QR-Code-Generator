@@ -1,0 +1,7 @@
+<html>
+  <body>
+    <input type="text" id="textInput" placeholder="Enter text or URL">
+    <button onclick="generateQR()">Generate QR</button>
+    <div id="qrCode"></div>
+  </body>
+</html>
