@@ -1,25 +1,150 @@
+<!DOCTYPE html>
 <html>
-<body>
-
-<input type="text" id="textInput" placeholder="Enter text or URL">
-<button onclick="generateQR()">Generate QR</button>
-
-<div id="qrCode"></div>
+<head>
+<title>QR Code Generator</title>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
 
-<script>
-function generateQR() {
-    let text = document.getElementById("textInput").value;
-
-    document.getElementById("qrCode").innerHTML = "";
-
-    new QRCode(document.getElementById("qrCode"), {
-        text: text,
-        width: 200,
-        height: 200
-    });
+<style>
+body{
+    font-family:Arial;
+    text-align:center;
+    margin:20px;
 }
+
+input{
+    padding:10px;
+    width:300px;
+}
+
+button{
+    padding:10px;
+    cursor:pointer;
+}
+
+#qrCode{
+    margin-top:20px;
+}
+
+table{
+    width:100%;
+    margin-top:20px;
+    border-collapse:collapse;
+}
+
+th,td{
+    border:1px solid black;
+    padding:10px;
+}
+</style>
+
+</head>
+<body>
+
+<h2>QR Code Generator</h2>
+
+<input type="text" id="textInput" placeholder="Enter URL or Text">
+
+<button onclick="generateQR()">
+Generate QR
+</button>
+
+<div id="qrCode"></div>
+
+<br>
+
+<a id="downloadBtn" style="display:none;">
+<button>Download QR</button>
+</a>
+
+<h3>QR History</h3>
+
+<table>
+<thead>
+<tr>
+<th>Text / URL</th>
+<th>Date & Time</th>
+</tr>
+</thead>
+
+<tbody id="historyTable">
+</tbody>
+
+</table>
+
+<script>
+
+function generateQR(){
+
+let text=document.getElementById("textInput").value;
+
+if(text.trim()==""){
+alert("Please enter text or URL");
+return;
+}
+
+document.getElementById("qrCode").innerHTML="";
+
+new QRCode(document.getElementById("qrCode"),{
+text:text,
+width:200,
+height:200
+});
+
+setTimeout(()=>{
+
+let img=document.querySelector("#qrCode img");
+
+if(img){
+
+document.getElementById("downloadBtn").href=img.src;
+
+document.getElementById("downloadBtn").download="qrcode.png";
+
+document.getElementById("downloadBtn").style.display="inline";
+}
+
+},500);
+
+let history=JSON.parse(localStorage.getItem("qrHistory")) || [];
+
+history.push({
+text:text,
+date:new Date().toLocaleString()
+});
+
+localStorage.setItem(
+"qrHistory",
+JSON.stringify(history)
+);
+
+loadHistory();
+
+}
+
+function loadHistory(){
+
+let history=JSON.parse(localStorage.getItem("qrHistory")) || [];
+
+let table="";
+
+history.reverse().forEach(item=>{
+
+table+=`
+<tr>
+<td>${item.text}</td>
+<td>${item.date}</td>
+</tr>
+`;
+
+});
+
+document.getElementById("historyTable").innerHTML=table;
+
+}
+
+loadHistory();
+
 </script>
 
 </body>
