@@ -1,18 +1,14 @@
-# QR Code Generator
+\# QR Code Generator
 
 
 
-Project Description
-
-
+\## Project Description
 
 A simple QR Code Generator built using HTML, CSS, JavaScript and QRCode.js library.
 
 
 
-Features
-
-
+\## Features
 
 \- Generate QR Codes from text or URLs
 
@@ -24,11 +20,11 @@ Features
 
 \- Save Date and Time of generated QR Codes
 
+\- Unique filename for downloaded QR Codes
+
 
 
 \## Technologies Used
-
-
 
 \- HTML
 
@@ -42,9 +38,7 @@ Features
 
 
 
-How to Run
-
-
+\## How to Run
 
 1\. Open the project in a browser.
 
@@ -58,17 +52,13 @@ How to Run
 
 
 
-Live Demo
-
-
+\## Live Demo
 
 https://iriteshtech.github.io/QR-Code-Generator/
 
 
 
 \## Author
-
-
 
 Ritesh Raj Tiwary
 
