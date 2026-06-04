@@ -36,6 +36,10 @@ th,td{
     border:1px solid black;
     padding:10px;
 }
+
+.preview{
+    width:60px;
+}
 </style>
 
 </head>
@@ -45,16 +49,14 @@ th,td{
 
 <input type="text" id="textInput" placeholder="Enter URL or Text">
 
-<button onclick="generateQR()">
-Generate QR
-</button>
+<button onclick="generateQR()">Generate QR</button>
 
 <div id="qrCode"></div>
 
 <br>
 
 <a id="downloadBtn" style="display:none;">
-<button>Download QR</button>
+<button>Download Current QR</button>
 </a>
 
 <h3>QR History</h3>
@@ -63,12 +65,13 @@ Generate QR
 <thead>
 <tr>
 <th>Text / URL</th>
+<th>QR Preview</th>
 <th>Date & Time</th>
+<th>Download</th>
 </tr>
 </thead>
 
-<tbody id="historyTable">
-</tbody>
+<tbody id="historyTable"></tbody>
 
 </table>
 
@@ -79,16 +82,16 @@ function generateQR(){
 let text=document.getElementById("textInput").value;
 
 if(text.trim()==""){
-alert("Please enter text or URL");
-return;
+    alert("Please enter text or URL");
+    return;
 }
 
 document.getElementById("qrCode").innerHTML="";
 
 new QRCode(document.getElementById("qrCode"),{
-text:text,
-width:200,
-height:200
+    text:text,
+    width:200,
+    height:200
 });
 
 setTimeout(()=>{
@@ -98,27 +101,27 @@ let img=document.querySelector("#qrCode img");
 if(img){
 
 document.getElementById("downloadBtn").href=img.src;
-
 document.getElementById("downloadBtn").download="qrcode.png";
-
 document.getElementById("downloadBtn").style.display="inline";
-}
-
-},500);
 
 let history=JSON.parse(localStorage.getItem("qrHistory")) || [];
 
 history.push({
-text:text,
-date:new Date().toLocaleString()
+    text:text,
+    date:new Date().toLocaleString(),
+    image:img.src
 });
 
 localStorage.setItem(
-"qrHistory",
-JSON.stringify(history)
+    "qrHistory",
+    JSON.stringify(history)
 );
 
 loadHistory();
+
+}
+
+},500);
 
 }
 
@@ -128,12 +131,25 @@ let history=JSON.parse(localStorage.getItem("qrHistory")) || [];
 
 let table="";
 
-history.reverse().forEach(item=>{
+history.slice().reverse().forEach(item=>{
 
 table+=`
 <tr>
 <td>${item.text}</td>
+
+<td>
+<img src="${item.image}" class="preview">
+</td>
+
 <td>${item.date}</td>
+
+<td>
+<a href="${item.image}"
+download="qrcode.png">
+<button>Download</button>
+</a>
+</td>
+
 </tr>
 `;
 
