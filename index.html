@@ -101,7 +101,7 @@ let img=document.querySelector("#qrCode img");
 if(img){
 
 document.getElementById("downloadBtn").href=img.src;
-document.getElementById("downloadBtn").download="qrcode_"+Date.now()+.png";
+document.getElementById("downloadBtn").download="qrcode_"+Date.now()+".png";
 document.getElementById("downloadBtn").style.display="inline";
 
 let history=JSON.parse(localStorage.getItem("qrHistory")) || [];
@@ -145,7 +145,7 @@ table+=`
 
 <td>
 <a href="${item.image}"
-download="qrcode_${Date.now()}.png">
+download="qrcode_${new Date().getTime()}.png">
 <button>Download</button>
 </a>
 </td>
