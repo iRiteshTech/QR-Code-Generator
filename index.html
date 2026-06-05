@@ -361,6 +361,9 @@ text:text,
 date:new Date().toLocaleString(),
 image:img.src
 });
+if(history.length > 10){
+    history.shift();
+}
 
 localStorage.setItem(
 "qrHistory",
