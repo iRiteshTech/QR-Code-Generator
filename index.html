@@ -353,11 +353,56 @@ document.getElementById(
 }
 
 function loadHistory(){
+function loadHistory(){
 
-let history=
-JSON.parse(
-localStorage.getItem("qrHistory")
-) || [];
+fetch("get_history.php")
+
+.then(response => response.json())
+
+.then(history => {
+
+let table = "";
+
+history.forEach(item => {
+
+table += `
+
+<tr>
+
+<td>${item.text_url}</td>
+
+<td>
+<img
+src="${item.qr_image}"
+class="preview">
+</td>
+
+<td>${item.created_at}</td>
+
+<td>
+<a
+href="${item.qr_image}"
+download="qrcode.png"
+class="history-download">
+
+⬇ Download
+
+</a>
+</td>
+
+</tr>
+
+`;
+
+});
+
+document.getElementById(
+"historyTable"
+).innerHTML = table;
+
+});
+
+}
 
 let table="";
 
