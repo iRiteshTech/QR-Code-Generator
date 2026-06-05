@@ -358,16 +358,18 @@ document.getElementById(
 },500);
 
 }
-
 function loadHistory(){
 
+let history =
+JSON.parse(
+localStorage.getItem("qrHistory")
+) || [];
 
 let table="";
 
 history.reverse().forEach(item=>{
 
-table+=`
-
+table += `
 <tr>
 
 <td>${item.text}</td>
@@ -381,7 +383,6 @@ class="preview">
 <td>${item.date}</td>
 
 <td>
-
 <a
 href="${item.image}"
 download="qrcode.png"
@@ -390,21 +391,18 @@ class="history-download">
 ⬇ Download
 
 </a>
-
 </td>
 
 </tr>
-
 `;
 
 });
 
 document.getElementById(
 "historyTable"
-).innerHTML=table;
+).innerHTML = table;
 
 }
-
 function clearHistory(){
 
 localStorage.removeItem(
