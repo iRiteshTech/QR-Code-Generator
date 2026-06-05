@@ -118,6 +118,12 @@ button{
     color:white;
     text-decoration:none;
     display:none;
+    padding:12px 20px;
+    border-radius:10px;
+    font-weight:600;
+    width:100%;
+    max-width:250px;
+    margin:auto;
 }
 
 .download-btn:hover{
@@ -194,10 +200,9 @@ td{
 
 input,
 select,
-button{
+button,
+.download-btn{
     width:100%;
-}
-
 }
 
 </style>
@@ -353,56 +358,7 @@ document.getElementById(
 }
 
 function loadHistory(){
-function loadHistory(){
 
-fetch("get_history.php")
-
-.then(response => response.json())
-
-.then(history => {
-
-let table = "";
-
-history.forEach(item => {
-
-table += `
-
-<tr>
-
-<td>${item.text_url}</td>
-
-<td>
-<img
-src="${item.qr_image}"
-class="preview">
-</td>
-
-<td>${item.created_at}</td>
-
-<td>
-<a
-href="${item.qr_image}"
-download="qrcode.png"
-class="history-download">
-
-⬇ Download
-
-</a>
-</td>
-
-</tr>
-
-`;
-
-});
-
-document.getElementById(
-"historyTable"
-).innerHTML = table;
-
-});
-
-}
 
 let table="";
 
