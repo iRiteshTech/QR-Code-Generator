@@ -195,6 +195,10 @@ td{
 
 @media(max-width:768px){
 
+body{
+    padding:15px;
+}
+
 .form-row{
     flex-direction:column;
 }
@@ -204,41 +208,18 @@ select,
 button,
 .download-btn{
     width:100%;
+    min-width:100%;
 }
 
-@media(max-width:768px){
-
-.form-row{
-    flex-direction:column;
-}
-
-input,
-select,
-button,
-.download-btn{
-    width:100%;
+.title h1{
+    font-size:32px;
 }
 
 table{
+    width:100%;
     display:block;
     overflow-x:auto;
     white-space:nowrap;
-}
-
-thead{
-    display:none;
-}
-
-tr{
-    margin-bottom:15px;
-    background:white;
-    border-radius:10px;
-    padding:10px;
-}
-
-td{
-    text-align:left;
-    padding:8px;
 }
 
 }
