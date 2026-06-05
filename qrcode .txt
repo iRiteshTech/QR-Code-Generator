@@ -41,21 +41,9 @@ body{
     color:#6b7280;
     margin-top:8px;
 }
-.logo{
-    font-size:60px;
-    margin-bottom:10px;
-}
-
-.line{
-    width:80px;
-    height:4px;
-    background:#7c3aed;
-    margin:15px auto;
-    border-radius:20px;
-}
 
 .card{
-    background:#faf8ff;
+    background:white;
     padding:30px;
     border-radius:20px;
     box-shadow:0 5px 20px rgba(0,0,0,0.08);
@@ -90,12 +78,9 @@ button{
     cursor:pointer;
     font-weight:600;
 }
+
 .generate-btn{
-    background:linear-gradient(
-    90deg,
-    #7c3aed,
-    #9333ea
-    );
+    background:#7c3aed;
     color:white;
 }
 
@@ -157,11 +142,11 @@ table{
     overflow:hidden;
     box-shadow:0 5px 20px rgba(0,0,0,0.08);
 }
+
 th{
-    background:linear-gradient(90deg,#7c3aed,#8b5cf6);
+    background:#7c3aed;
     color:white;
     padding:15px;
-    font-weight:600;
 }
 
 td{
@@ -205,16 +190,11 @@ button{
 
 <body>
 
+<div class="container">
+
 <div class="title">
-
-<div class="logo">📱</div>
-
 <h1>QR Code Generator</h1>
-
 <p>Create, Preview & Download QR Codes Instantly</p>
-
-<div class="line"></div>
-
 </div>
 
 <div class="card">
