@@ -358,12 +358,8 @@ localStorage.getItem("qrHistory")
 
 history.push({
 text:text,
-date:new Date().toLocaleString(),
-image:img.src
+date:new Date().toLocaleString()
 });
-if(history.length > 10){
-    history.shift();
-}
 
 localStorage.setItem(
 "qrHistory",
