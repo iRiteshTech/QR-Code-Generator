@@ -6,9 +6,9 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
 
 <style>
+
 body{
-    font-family:Arial;
-    text-align:center;
+    font-family: Arial;
     margin:20px;
 }
 
@@ -26,6 +26,12 @@ button{
     margin-top:20px;
 }
 
+#qrCode img{
+    display:block;
+    pointer-events:none;
+    user-select:none;
+}
+
 table{
     width:100%;
     margin-top:20px;
@@ -35,34 +41,21 @@ table{
 th,td{
     border:1px solid black;
     padding:10px;
+    text-align:center;
 }
 
 .preview{
     width:60px;
 }
-img{
-    user-select:none;
-}
 
-#qrCode{
-    user-select:none;
-}
-*{
+img{
     user-select:none;
 }
 
 #textInput{
     user-select:text;
 }
-#qrCode img{
-    display:block;
-    pointer-events:none;
-}
 
-#qrCode img{
-    pointer-events:none;
-    user-select:none;
-}
 </style>
 
 </head>
@@ -85,9 +78,11 @@ img{
 <br>
 
 <a id="downloadBtn" style="display:none;">
-<button>Download Current QR</button>
+    <button>Download Current QR</button>
 </a>
+
 <button onclick="clearHistory()">Clear History</button>
+
 <br><br>
 
 <h3>QR History</h3>
@@ -103,18 +98,17 @@ img{
 </thead>
 
 <tbody id="historyTable"></tbody>
-
 </table>
 
 <script>
 
 function generateQR(){
 
-let text=document.getElementById("textInput").value;
+let text=document.getElementById("textInput").value.trim();
 let size=parseInt(document.getElementById("qrSize").value);
 
-if(text.trim()==""){
-    alert("Please enter text or URL");
+if(text===""){
+    alert("Please enter URL or Text");
     return;
 }
 
@@ -125,10 +119,6 @@ new QRCode(document.getElementById("qrCode"),{
     width:size,
     height:size
 });
-
-setTimeout(()=>{
-    console.log(document.getElementById("qrCode").innerHTML);
-},100);
 
 setTimeout(()=>{
 
@@ -147,7 +137,6 @@ history.push({
     date:new Date().toLocaleString(),
     image:img.src
 });
-console.log("Generated:", text);
 
 localStorage.setItem(
     "qrHistory",
@@ -155,8 +144,8 @@ localStorage.setItem(
 );
 
 loadHistory();
-window.getSelection().removeAllRanges();
-document.getElementById("textInput").value = "";
+
+document.getElementById("textInput").value="";
 
 }
 
@@ -174,6 +163,7 @@ history.slice().reverse().forEach(item=>{
 
 table+=`
 <tr>
+
 <td>${item.text}</td>
 
 <td>
@@ -183,8 +173,7 @@ table+=`
 <td>${item.date}</td>
 
 <td>
-<a href="${item.image}"
-download="qrcode_${new Date().getTime()}.png">
+<a href="${item.image}" download>
 <button>Download</button>
 </a>
 </td>
@@ -198,18 +187,17 @@ document.getElementById("historyTable").innerHTML=table;
 
 }
 
-loadHistory();
 function clearHistory(){
 
 localStorage.removeItem("qrHistory");
 
-document.getElementById("historyTable").innerHTML = "";
+document.getElementById("historyTable").innerHTML="";
 
 alert("History Cleared Successfully");
 
 }
 
-console.log("Script Loaded");
+loadHistory();
 
 </script>
 
