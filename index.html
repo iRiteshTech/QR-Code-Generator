@@ -397,6 +397,12 @@ JSON.parse(
 localStorage.getItem("qrHistory")
 ) || [];
 
+if(history.length === 0){
+    document.getElementById("historyTable").innerHTML =
+    '<tr><td colspan="4">No QR History Found</td></tr>';
+    return;
+}
+
 let table="";
 
 history.reverse().forEach(item=>{
