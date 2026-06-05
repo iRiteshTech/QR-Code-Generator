@@ -40,6 +40,13 @@ th,td{
 .preview{
     width:60px;
 }
+img{
+    user-select:none;
+}
+
+#qrCode{
+    user-select:none;
+}
 </style>
 
 </head>
@@ -127,6 +134,7 @@ localStorage.setItem(
 );
 
 loadHistory();
+window.getSelection().removeAllRanges();
 document.getElementById("textInput").value = "";
 
 }
