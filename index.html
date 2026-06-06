@@ -366,10 +366,20 @@ JSON.parse(
 localStorage.getItem("qrHistory")
 ) || [];
 
+let imageData = img.src;
+
+if(!img.src){
+    let canvas = document.querySelector("#qrCode canvas");
+
+    if(canvas){
+        imageData = canvas.toDataURL("image/png");
+    }
+}
+
 history.push({
     text:text,
     date:new Date().toLocaleString(),
-    image:img.src
+    image:imageData
 });
 
 localStorage.setItem(
