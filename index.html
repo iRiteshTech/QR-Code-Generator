@@ -175,10 +175,13 @@ td{
     padding:15px;
     border-bottom:1px solid #eee;
     text-align:center;
+    vertical-align:middle;
 }
 
 .preview{
     width:70px;
+    display:block;
+    margin:auto;
 }
 
 .history-download{
@@ -187,6 +190,7 @@ td{
     padding:8px 15px;
     border-radius:8px;
     text-decoration:none;
+    display:inline-block;
 }
 
 .history-download:hover{
@@ -357,9 +361,9 @@ localStorage.getItem("qrHistory")
 ) || [];
 
 history.push({
-text:text,
-date:new Date().toLocaleString(),
-image:img.scr
+    text:text,
+    date:new Date().toLocaleString(),
+    image:img.src
 });
 
 localStorage.setItem(
