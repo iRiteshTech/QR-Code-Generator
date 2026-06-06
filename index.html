@@ -344,7 +344,20 @@ height:size
 
 setTimeout(()=>{
 
-let img=document.querySelector("#qrCode img");
+let img = document.querySelector("#qrCode img");
+
+if(!img){
+
+    let canvas = document.querySelector("#qrCode canvas");
+
+    if(canvas){
+
+        img = {
+            src: canvas.toDataURL("image/png")
+        };
+
+    }
+}
 
 if(img){
 
