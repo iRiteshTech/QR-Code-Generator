@@ -277,10 +277,9 @@ Generate QR
 
 <div class="action-area">
 
-<a id="downloadBtn"
-class="download-btn">
+<button id="downloadBtn" class="download-btn">
 Download Current QR
-</a>
+</button>
 
 <br><br>
 
@@ -390,9 +389,17 @@ JSON.stringify(history)
 let btn=
 document.getElementById("downloadBtn");
 
-btn.href=img.src;
-btn.download=
-"qrcode_"+Date.now()+".png";
+btn.onclick = function(){
+
+    let link = document.createElement("a");
+
+    link.href = imageData;
+
+    link.download = "qrcode_" + Date.now() + ".png";
+
+    link.click();
+
+};
 
 btn.style.display="inline-block";
 
