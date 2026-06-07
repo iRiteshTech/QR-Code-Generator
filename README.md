@@ -1,6 +1,6 @@
 🚀 QR Code Generator
 
-A modern and user-friendly QR Code Generator built using HTML, CSS, JavaScript, PHP, MySQL, and QRCode.js. Users can register, login, generate QR codes from text or URLs, download them instantly, and manage QR history stored in a MySQL database.
+A modern and user-friendly QR Code Generator built using HTML, CSS, JavaScript, PHP, MySQL, and QRCode.js. Users can generate QR codes from text or URLs, download them instantly, and manage QR history stored in a MySQL database.
 
 🌐 Live Demo
 
@@ -69,54 +69,52 @@ https://iriteshtech.github.io/QR-Code-Generator/
 
 ⚙️ How to Run
 
+Method 1: Run Locally
+
 1. Clone the Repository
 
-git clone https://github.com/iRiteshTech/QR-Code-Generator.git
+   git clone https://github.com/iRiteshTech/QR-Code-Generator.git
 
 2. Open Project Folder
 
-QR-Code-Generator
+   QR-Code-Generator
 
 3. Start XAMPP
 
-Start:
+  Start:
 
 - Apache
 - MySQL
 
 4. Create Database
 
-Database Name:
+  Database Name:
 
-qr_generator
+  qr_generator
 
 5. Create Tables
 
-Users Table
+  CREATE TABLE users (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  username VARCHAR(100) NOT NULL,
+  email VARCHAR(100) UNIQUE NOT NULL,
+  password VARCHAR(255) NOT NULL
+  );
 
-CREATE TABLE users (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    username VARCHAR(100) NOT NULL,
-    email VARCHAR(100) UNIQUE NOT NULL,
-    password VARCHAR(255) NOT NULL
-);
-
-QR History Table
-
-CREATE TABLE qr_history (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    text_url VARCHAR(500) NOT NULL,
-    qr_image LONGTEXT NOT NULL,
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-);
+  CREATE TABLE qr_history (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  text_url VARCHAR(500) NOT NULL,
+  qr_image LONGTEXT NOT NULL,
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+  );
 
 6. Move Project to htdocs
 
-C:\xampp\htdocs\QR-Code-Generator
+  C:\xampp\htdocs\QR-Code-Generator
 
 7. Open Browser
 
-http://localhost/QR-Code-Generator/
+  http://localhost/QR-Code-Generator/
 
 8. Use the Application
 
@@ -207,4 +205,3 @@ If you found this project useful, consider giving it a ⭐ on GitHub.
 
 ✅ README Documentation Completed
 
-Project is Ready.
