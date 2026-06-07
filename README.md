@@ -119,11 +119,22 @@ http://localhost/QR-Code-Generator/
 QR-Code-Generator/
 │
 ├── frontend/
+│   ├── index.html
+│   ├── style.css
+│   └── script.js
+│
 ├── backend/
+│   ├── db.php
+│   ├── save_qr.php
+│   ├── get_history.php
+│   ├── clear_history.php
+│   └── index.php
+│
 ├── screenshots/
 │   ├── Screenshot 2026-06-06 160419.png
 │   ├── Screenshot 2026-06-06 160529.png
 │   └── Screenshot 2026-06-06 160609.png
+│
 ├── README.md
 └── .gitattributes
 ```
