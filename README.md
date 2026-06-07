@@ -117,6 +117,9 @@ http://localhost/QR-Code-Generator/
 
 📂 Project Structure
 
+## 📂 Project Structure
+
+```text
 QR-Code-Generator/
 │
 ├── frontend/
@@ -131,14 +134,13 @@ QR-Code-Generator/
 │   ├── clear_history.php
 │   └── index.php
 │
-├── screenshots/
-│   ├── home-page.png
-│   ├── qr-generated.png
-│   └── qr-history.png
+├── Screenshot 2026-06-06 160419.png
+├── Screenshot 2026-06-06 160529.png
+├── Screenshot 2026-06-06 160609.png
 │
 ├── README.md
-│
 └── .gitattributes
+```
 
 ---
 
