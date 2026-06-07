@@ -237,6 +237,33 @@ table{
 </head>
 
 <body>
+<div class="card" id="authCard">
+
+<h2 style="text-align:center;margin-bottom:20px;">
+Login / Register
+</h2>
+
+<input type="text" id="username" placeholder="Username">
+
+<br><br>
+
+<input type="email" id="email" placeholder="Email">
+
+<br><br>
+
+<input type="password" id="password" placeholder="Password">
+
+<br><br>
+
+<button onclick="registerUser()" class="generate-btn">
+Register
+</button>
+
+<button onclick="loginUser()" class="clear-btn">
+Login
+</button>
+
+</div>
 
 <div class="title">
 
@@ -250,7 +277,7 @@ table{
 
 </div>
 
-<div class="card">
+<div class="card" id="mainApp" style="display:none;">
 
 <div class="form-row">
 
@@ -293,11 +320,14 @@ Clear History
 
 </div>
 
+<div id="historySection" style="display:none;">
+
 <h2 class="history-title">
 QR History
 </h2>
 
 <table>
+</div>
 
 <thead>
 <tr>
@@ -316,6 +346,73 @@ QR History
 </div>
 
 <script>
+
+function registerUser(){
+
+let username =
+document.getElementById("username").value;
+
+let email =
+document.getElementById("email").value;
+
+let password =
+document.getElementById("password").value;
+
+fetch("../backend/register.php",{
+method:"POST",
+headers:{
+"Content-Type":
+"application/x-www-form-urlencoded"
+},
+body:
+`username=${username}&email=${email}&password=${password}`
+})
+.then(res=>res.text())
+.then(data=>{
+alert(data);
+});
+
+}
+function loginUser(){
+
+let email =
+document.getElementById("email").value;
+
+let password =
+document.getElementById("password").value;
+
+fetch("../backend/login.php",{
+method:"POST",
+headers:{
+"Content-Type":
+"application/x-www-form-urlencoded"
+},
+body:
+`email=${email}&password=${password}`
+})
+.then(res=>res.text())
+.then(data=>{
+
+alert(data);
+
+if(data.includes("Login Successful")){
+
+document.getElementById(
+"authCard"
+).style.display="none";
+
+document.getElementById(
+"mainApp"
+).style.display="block";
+document.getElementById(
+"historySection"
+).style.display="block";
+
+}
+
+});
+
+}
 
 function generateQR(){
 
