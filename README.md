@@ -10,6 +10,10 @@ https://iriteshtech.github.io/QR-Code-Generator/
 
 📌 Features
 
+✅ User Registration System
+
+✅ User Login System
+
 ✅ Generate QR Codes from Text or URLs
 
 ✅ Multiple QR Size Options
@@ -88,6 +92,14 @@ qr_generator
 
 5. Create Table
 
+CREATE TABLE users (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    username VARCHAR(100) NOT NULL,
+    email VARCHAR(100) UNIQUE NOT NULL,
+    password VARCHAR(255) NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
 CREATE TABLE qr_history (
     id INT AUTO_INCREMENT PRIMARY KEY,
     text_url VARCHAR(500) NOT NULL,
@@ -105,11 +117,16 @@ http://localhost/QR-Code-Generator/
 
 8. Generate QR
 
+8. Use the Application
+
+- Register a New Account
+- Login with Registered Credentials
 - Enter any Text or URL
 - Select QR Size
 - Click Generate QR
 - Download QR Code
 - View QR History
+- Clear QR History
 
 ---
 
@@ -125,6 +142,8 @@ QR-Code-Generator/
 │
 ├── backend/
 │   ├── db.php
+│   ├── register.php
+│   ├── login.php
 │   ├── save_qr.php
 │   ├── get_history.php
 │   ├── clear_history.php
@@ -143,7 +162,6 @@ QR-Code-Generator/
 
 🎯 Future Improvements
 
-- User Login & Registration
 - QR Logo Support
 - Custom QR Colors
 - Dark Mode
@@ -169,6 +187,10 @@ If you found this project useful, consider giving it a ⭐ on GitHub.
 ---
 
 📊 Project Status
+
+✅ User Registration Implemented
+
+✅ User Login Implemented
 
 ✅ Frontend Completed
 
