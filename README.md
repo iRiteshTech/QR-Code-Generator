@@ -51,15 +51,15 @@ https://iriteshtech.github.io/QR-Code-Generator/
 
 ### 🏠 Home Page
 
-![Home Page](screenshots/home-page.png)
+![Home Page](Screenshot%202026-06-06%20160419.png)
 
 ### ⚡ QR Generated
 
-![QR Generated](screenshots/qr-generated.png)
+![QR Generated](Screenshot%202026-06-06%20160529.png)
 
 ### 📜 QR History
 
-![QR History](screenshots/qr-history.png)
+![QR History](Screenshot%202026-06-06%20160609.png)
 
 ---
 
