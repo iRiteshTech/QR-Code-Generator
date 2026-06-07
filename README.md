@@ -1,14 +1,14 @@
-# 🚀 QR Code Generator
+🚀 QR Code Generator
 
-A modern and user-friendly QR Code Generator built using HTML, CSS, JavaScript, and QRCode.js. Users can generate QR codes from text or URLs, download them instantly, and view previously generated QR codes through a history system powered by Local Storage.
+A modern and user-friendly QR Code Generator built using HTML, CSS, JavaScript, PHP, MySQL, and QRCode.js. Users can generate QR codes from text or URLs, download them instantly, and manage QR history stored in a MySQL database.
 
-## 🌐 Live Demo
+🌐 Live Demo
 
 https://iriteshtech.github.io/QR-Code-Generator/
 
 ---
 
-## 📌 Features
+📌 Features
 
 ✅ Generate QR Codes from Text or URLs
 
@@ -20,7 +20,7 @@ https://iriteshtech.github.io/QR-Code-Generator/
 
 ✅ QR History Management
 
-✅ Store QR History using Local Storage
+✅ Store QR History using PHP & MySQL Database
 
 ✅ Show QR Preview in History Table
 
@@ -36,85 +36,126 @@ https://iriteshtech.github.io/QR-Code-Generator/
 
 ---
 
-## 🛠️ Technologies Used
+🛠️ Technologies Used
 
 - HTML5
 - CSS3
 - JavaScript (ES6)
+- PHP
+- MySQL
 - QRCode.js Library
-- Local Storage API
 
 ---
 
 ## 📷 Screenshots
 
-### Home Page
+### 🏠 Home Page
 
-![Home Page](Screenshot%202026-06-06%20160419.png)
+![Home Page](screenshots/home-page.png)
 
-### QR Generated
+### ⚡ QR Generated
 
-![QR Generated](Screenshot%202026-06-06%20160529.png)
+![QR Generated](screenshots/qr-generated.png)
 
-### QR History
+### 📜 QR History
 
-![QR History](Screenshot%202026-06-06%20160609.png)
+![QR History](screenshots/qr-history.png)
 
 ---
 
-## ⚙️ How to Run
+⚙️ How to Run
 
-### Method 1: Run Locally
+Method 1: Run Locally
 
-1. Clone the repository
+1. Clone the Repository
 
-```bash
 git clone https://github.com/iRiteshTech/QR-Code-Generator.git
-```
 
-2. Open the project folder
+2. Open Project Folder
 
-3. Open `index.html` in your browser
+QR-Code-Generator
 
-4. Enter any Text or URL
+3. Start XAMPP
 
-5. Click **Generate QR**
+Start:
 
-6. Download the generated QR Code
+- Apache
+- MySQL
 
-7. View previous QR Codes in the History section
+4. Create Database
+
+Database Name:
+
+qr_generator
+
+5. Create Table
+
+CREATE TABLE qr_history (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    text_url VARCHAR(500) NOT NULL,
+    qr_image LONGTEXT NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+6. Move Project to htdocs
+
+C:\xampp\htdocs\QR-Code-Generator
+
+7. Open Browser
+
+http://localhost/QR-Code-Generator/
+
+8. Generate QR
+
+- Enter any Text or URL
+- Select QR Size
+- Click Generate QR
+- Download QR Code
+- View QR History
 
 ---
 
-## 📂 Project Structure
+📂 Project Structure
 
-```text
 QR-Code-Generator/
 │
 ├── frontend/
+│   ├── index.html
+│   ├── style.css
+│   └── script.js
 │
 ├── backend/
+│   ├── db.php
+│   ├── save_qr.php
+│   ├── get_history.php
+│   ├── clear_history.php
+│   └── index.php
+│
+├── screenshots/
+│   ├── home-page.png
+│   ├── qr-generated.png
+│   └── qr-history.png
 │
 ├── README.md
 │
 └── .gitattributes
-```
 
 ---
 
-## 🎯 Future Improvements
+🎯 Future Improvements
 
+- User Login & Registration
+- QR Logo Support
 - Custom QR Colors
 - Dark Mode
-- QR Logo Support
 - Export History as CSV
 - QR Scan Feature
 
 ---
 
-## 👨‍💻 Author
+👨‍💻 Author
 
-**Ritesh Raj Tiwary**
+Ritesh Raj Tiwary
 
 Computer Science Student | Power BI Developer | Java Developer | Web Developer
 
@@ -122,6 +163,28 @@ GitHub: https://github.com/iRiteshTech
 
 ---
 
-## ⭐ Support
+⭐ Support
 
 If you found this project useful, consider giving it a ⭐ on GitHub.
+
+---
+
+📊 Project Status
+
+✅ Frontend Completed
+
+✅ Backend Completed
+
+✅ MySQL Database Integrated
+
+✅ QR History Implemented
+
+✅ Download Functionality Added
+
+✅ GitHub Repository Published
+
+✅ GitHub Pages Deployed
+
+✅ README Documentation Completed
+
+🚀 Project Ready for Internship Submission
