@@ -137,8 +137,6 @@ QR-Code-Generator/
 │
 ├── frontend/
 │   ├── index.html
-│   ├── style.css
-│   └── script.js
 │
 ├── backend/
 │   ├── db.php
